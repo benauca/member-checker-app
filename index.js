@@ -13,6 +13,14 @@ module.exports = (app) => {
     return context.octokit.issues.createComment(issueComment);
   });
 
+  app.on("member.added", async(contex) => {
+      const member = context.memberCommet({
+      body: "Member is add to the Repository!",
+    });
+    return context.octokit.issues.createComment(issueComment);
+  })
+
+
   // For more information on building apps:
   // https://probot.github.io/docs/
 
